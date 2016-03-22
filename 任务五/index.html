@@ -10,65 +10,160 @@
 <body>
     <header>
         <ul>
-            <li>导航链接一</li>
-            <li>导航链接二</li>
-            <li>导航链接三</li>
-            <li>导航链接四</li>
+            <li><a href="#" title="1">导航链接一</a></li>
+            <li><a href="#" title="2">导航链接二</a></li>
+            <li><a href="#" title="3">导航链接三</a></li>
+            <li><a href="#" title="4">导航链接四</a></li>
         </ul>
     </header>
-    <div class="main"> 
-    	<div>
-    		<article>
-    			<h1>一级标题</h1>
-    			<h2>二级标题</h2>
-    		</article>
-    		<section>
-    			<h1>图片</h1>
-    			<div>
-    				<span>好看的图片</span>
-    				<img src="">
-    			</div>
-    			<div>
-    				<span>好看的图片</span>
-    				<img src="">
-    			</div>
-    			<div>
-    				<span>好看的图片</span>
-    				<img src="">
-    			</div>
-    			<div>
-    				<span>好看的图片</span>
-    				<img src="">
-    			</div>
-    			<div>
-    				<span>好看的图片</span>
-    				<img src="">
-    			</div>
-    			<div>
-    				<span>好看的图片</span>
-    				<img src="">
-    			</div>
-    			<div>
-    				<span>好看的图片</span>
-    				<img src="">
-    			</div>
-    			<div>
-    				<span>好看的图片</span>
-    				<img src="">
-    			</div>
-    			<div>
-    				<span>好看的图片</span>
-    				<img src="">
-    			</div>
-    			<div>
-    				<span>好看的图片</span>
-    				<img src="">
-    			</div>
-    		</section>
-    	</div>
-    	<aside>
-        	<h2>这里以后是一个侧栏，这是侧栏的标题</h2>
-    	</aside>
+    <div class="main">
+        <div>
+            <section>
+                <article>
+                    <h1>一级标题</h1>
+                    <h2>二级标题</h2>
+                </article>
+            </section>
+            <section>
+                <h1>图片</h1>
+                <div>
+                    <span>好看的图片</span>
+                    <img src="">
+                </div>
+                <div>
+                    <span>好看的图片</span>
+                    <img src="">
+                </div>
+                <div>
+                    <span>好看的图片</span>
+                    <img src="">
+                </div>
+                <div>
+                    <span>好看的图片</span>
+                    <img src="">
+                </div>
+                <div>
+                    <span>好看的图片</span>
+                    <img src="">
+                </div>
+                <div>
+                    <span>好看的图片</span>
+                    <img src="">
+                </div>
+                <div>
+                    <span>好看的图片</span>
+                    <img src="">
+                </div>
+                <div>
+                    <span>好看的图片</span>
+                    <img src="">
+                </div>
+                <div>
+                    <span>好看的图片</span>
+                    <img src="">
+                </div>
+                <div>
+                    <span>好看的图片</span>
+                    <img src="">
+                </div>
+            </section>
+            <section>
+                <ol>
+                    <li>苹果</li>
+                    <li>橘子</li>
+                    <li>西瓜</li>
+                </ol>
+                <table border="1" >
+                    <thead>
+                        <tr>
+                            <td>表头</td>
+                            <td>表头</td>
+                            <td>表头</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>表单内容单元格</td>
+                            <td>表单内容单元格</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>表单内容单元格</td>
+                            <td>表单内容单元格</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>表单内容单元格</td>
+                            <td>表单内容单元格</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>表单内容单元格</td>
+                            <td>表单内容单元格</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>总计</td>
+                            <td colspan="2">1000</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
+        </div>
+        <aside>
+            <h2>这里以后是一个侧栏，这是侧栏的标题</h2>
+            <form action="" method="">
+                <ul>
+                    <li>
+                        <label for="">请输入邮箱地址</label>
+                        <input id="email" type="text" placeholder="这是一个文本输入框" name="email">
+                    </li>
+                    <li>
+                        <p>邮箱地址请按要求格式输入</p>
+                    </li>
+                    <li>
+                        <label for="">请输入密码</label>
+                        <input id="password" type="password" placeholder="******" name="password">
+                    </li>
+                    <li>
+                        <label for="password-again">请重复输入密码</label>
+                        <input id="password-again" type="password" placeholder="******" name="password-again">
+                    </li>
+                    <li>
+                        <p>密码请为6-16位英文数字</p>
+                    </li>
+                    <li>
+                        <label for="gender">性别</label>
+                        <input type="radio" name="gender" value="male">男
+                        <input type="radio" name="gender" value="female">女
+                    </li>
+                    <li>
+                        <label for="city">城市</label>
+                        <select id="city" name="city">
+                            <option value="shd">山东</option>
+                            <option value="bj">北京</option>
+                            <option value="shh">上海</option>
+                            <option value="gzh">广州</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="hobby">爱好</label>
+                        <input type="checkbox" name="sport">运动
+                        <input type="checkbox" name="art">艺术
+                        <input type="checkbox" name="science">科学
+                    </li>
+                    <li>
+                        <label for="describe">个人描述</label>
+                        <textarea id="describe" name="describe" rows="5" placeholder="这是一个多行输入框，输入您的个人描述"></textarea>
+                    </li>
+                    <li>
+                        <input type="submit" value="确认提交">
+                    </li>
+                </ul>
+            </form>
+        </aside>
     </div>
     <footer>版权所有</footer>
 </body>
