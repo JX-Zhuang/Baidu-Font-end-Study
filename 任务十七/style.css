@@ -1,0 +1,29 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+fieldset{
+	box-sizing: border-box;
+	width: 800px;
+	margin: 20px auto;
+	padding: 20px;
+}
+.aqi-chart-wrap{
+	box-sizing: border-box;
+	padding-right: 3px;
+	width: 800px;
+	height: 510px;
+	margin: 20px auto;
+	border: 1px solid black;
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-end;
+}
+.aqi-chart-wrap div{
+	margin-left: 3px;
+	width: 100%;
+	border-bottom: 0;
+}
+.aqi-chart-wrap .month{
+	width: 200px;
+}
