@@ -1,0 +1,485 @@
+*{
+	margin:0;
+	padding: 0;
+	font-family: "微软雅黑";
+	color: #5D5D5D;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+div{
+	box-sizing: border-box;
+}
+.wrap{
+	min-width: 1280px;
+	overflow: hidden;
+	padding-top: 57px;
+}
+header{
+	position: fixed;
+	top:0;
+	left: 0;
+	overflow: hidden;
+	width: 100%;
+	z-index: 2;
+}
+header>div{
+	height: 57px;
+	line-height: 57px;
+	padding:0 58px;
+	min-width: 750px;
+	background-color: #fff;
+}
+nav{
+	height: 100%;
+}
+header h1{
+	float: left;
+	width: 110px;
+	text-align: right;
+	font-family: "黑体";
+	font-size: 21px;
+	background:url(header-logo.png) no-repeat;
+	background-position: center left;
+}
+header ul{
+	float: right;
+}
+header ul li{
+	float: left;
+	font-size: 14px;
+	line-height: 57px;
+	width: 90px;
+}
+header ul li:first-child,header ul li:last-child{
+	width: 70px;
+}
+header ul li:first-child a{
+	color:#e74f4d;
+	border-bottom: 5px solid #e74f4d;
+}
+header a{
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+	height: 57px;
+	text-align: center;
+}
+header a:hover{
+	color: #e74f4d;
+	border-bottom: 5px solid #e74f4d;
+}
+section .index{
+	position: relative;
+	height: calc( 100vmin - 57px );
+	background: url(main.png) no-repeat;
+	background-size: cover;
+}
+
+
+section .life{
+	padding:40px 0 60px;
+	display: flex;
+}
+.life>div{
+	position: relative;
+	height: 125px;
+	width: 100%;
+	background-position: center top;
+	background-repeat: no-repeat;
+}
+.life>div:not(:last-child):after{
+	content: "";
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 3px;
+	height: 50px;
+	background-color: #A5A5A5;
+}
+.life>div p{
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 50%;
+	text-align: center;
+	font-size: 14px;
+	font-family: "黑体";
+}
+.life-love{
+	background-image: url(love.png);
+}
+.life-host{
+	background-image: url(host.png);
+}
+.life-unknown{
+	background-image: url(unknown.png);
+}
+.life-new{
+	background-image: url(new.png);
+}
+
+section .do-you-know{
+	box-sizing: border-box;
+	padding:90px 0 80px;
+	height: 360px;
+	background-color: #ededec;
+}
+section .do-you-know>div{
+	position: relative;
+	height: 100%;
+	background: url(logo.png) no-repeat;
+	background-position: center top;
+}
+section .do-you-know h2{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	color:#a1a1a1;
+	font-size: 54px;
+	font-family: "黑体";
+    font-weight: normal;
+}
+section .map{
+	height: 340px;
+	background: url(map.png) no-repeat;
+	background-size: cover;
+	padding-top: 50px;
+}
+section .map>div{
+	position: relative;
+	width: 1030px;
+	height: 156px;
+	margin:0 auto;
+}
+section .map h3{
+	position: relative;
+	height: 40px;
+	font-size: 21px;
+	font-weight: normal;
+	color: #fff;
+	text-align: center;
+}
+section .map h3:after{
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	content: "";
+	width: 30px;
+	height: 3px;
+	background-color: #fff;
+}
+section .map p{
+	text-align: center;
+	color: #fff;
+	font-size: 12px;
+	margin-top: 19px;
+}
+.choice{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 50px;
+	font-size: 12px;
+    line-height: 12px;
+}
+.choice>div{
+	width: 235px;
+	height: 36px;
+	background-color: #fff;
+}
+
+.choice .search button{
+	width: 100%;
+	height: 100%;
+	color:#fff;
+	font-size: 14px;
+	background-color: #e74f4d;
+	border: none;
+	cursor: pointer;
+}
+.select{
+	padding-left:10px;
+	border: white solid 2px;
+	background: url(select.png) no-repeat center right 10px;
+	cursor: pointer;
+}
+.select ul{
+	display: none;
+	width: calc( 100% + 14px);
+	background-color: #e3e2e4;
+	border: 2px solid #e74f4d;
+	max-height: 200px;
+    overflow-y: auto;
+    margin-left: -12px;
+    box-sizing: border-box;
+}
+.select ul li{
+	line-height: 26px;
+	padding-left: 12px;
+}
+.select ul li:hover{
+	color: #fff;
+	background-color: #e74f4d;
+}
+.select:focus{
+	border: 2px solid #e74f4d;
+	outline: none;
+}
+.select:focus ul{
+	display: block;
+	border: 2px solid #e74f4d;
+}
+.select:before{
+	content: attr(selected);
+	line-height: 33px;
+}
+section .active{
+	height: 605px;
+	background-color: #f7f7f7;
+	padding-top: 100px;
+	text-align: center;
+}
+section .active>div{
+	height: 390px;
+	width: 986px;
+	margin:0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+section .active>div>div>div{
+	height: 338px;
+	background-color: #fff;
+	background-image: url(active.png);
+	background-repeat: no-repeat;
+	border: 1px solid #eee;
+}
+section .active p{
+	font-size: 12px;
+	margin-bottom: 5px;
+}
+.bj,.shh,.shzh,.xg{
+	width: 220px;
+}
+.shh h5{
+	font-size: 22px;
+	margin-bottom: 5px;
+	font-weight: normal;
+}
+.bj h5,.xg h5,.shzh h5{
+	font-size: 16px;
+	font-weight: normal;
+	margin: 10px 0 12px;
+}
+.bj>div{
+	border-bottom-color: #fff !important;
+    background-position: 8px 6px;
+}
+.shh>div{
+	background-position: -246px -45px;
+}
+.shzh>div{
+	border-bottom-color: #fff !important;
+	background-position: -503px 8px;
+}
+.xg>div{
+	border-bottom-color: #fff !important;
+	background-position: -758px 8px;
+}
+
+section .new-world{
+	height: 565px;
+	display: flex;
+}
+.new-world-left{
+	padding-top: 130px;
+	background: url(new-world.png) no-repeat;
+	background-size: cover;
+	flex-grow:2;
+}
+.new-world-right{
+	position: relative;
+	flex-grow:1;
+}
+.new-world-right:before{
+	position: absolute;
+	content: "";
+	left: -26px;
+	top: 50%;
+	transform: translateY(-50%);
+	border-right: 26px solid #fff;
+	border-top: 15px solid rgba(255, 255, 255, 0);
+    border-bottom: 15px solid rgba(255, 255, 255, 0);
+}
+section .new-life{
+	height: 521px;
+	display: flex;
+}
+section .new-life>div{
+	flex-grow: 1;
+}
+section .new-life>div:first-child{
+	 background-color: #e74f4d;
+}
+section .new-life>div:nth-child(2){
+	position: relative;
+}
+section .new-life>div:nth-child(2):after{
+	position: absolute;
+	content: "";
+	right: -26px;
+	top: 50%;
+	transform: translateY(-50%);
+	border-left: 26px solid #fff;
+	border-top: 15px solid rgba(255, 255, 255, 0);
+    border-bottom: 15px solid rgba(255, 255, 255, 0);
+}
+section .new-life>div:last-child{
+	 background:url(new-life.png) no-repeat;
+}
+
+section .volunteer{
+	height: 750px;
+	padding:117px 136px 0;
+}
+.volunteer-top{
+	text-align: center;
+}
+.volunteer-top h3{
+	position: relative;
+	height: 40px;
+	font-size: 21px;
+	font-family: "黑体";
+	font-weight: normal;
+}
+.volunteer-top h3:after{
+	position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    content: "";
+    width: 30px;
+    height: 3px;
+    background-color: #e74f4d;
+}
+.volunteer-top p{
+	width: 442px;
+	font-size: 12px;
+	margin:14px auto 0;
+}
+.volunteer-main{
+	width: 100%;
+	overflow: hidden;
+	margin-top: 105px;
+}
+.volunteer-main-l{
+	float: left;
+	width: 290px;
+}
+.volunteer-main-l>div{
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 35px;
+}
+.volunteer-main-l>div>span{
+	position: relative;
+	float: right;
+	width: 45px;
+	font-family: "宋体";
+	font-size: 12px;
+	text-align: right;
+	line-height: 24px;
+}
+.volunteer-main-l>div>span:before{
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0;
+	height: 7px;
+	width: 11px;
+	background: url(more.png) no-repeat center left;
+	transform: translateY(-50%);
+}
+.volunteer-main-l h5{
+	font-family: "黑体";
+	font-size: 14px;
+	font-weight: normal;
+	margin-bottom: 27px;
+}
+.volunteer-main-l p{
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 24px;
+}
+.volunteer-main-r{
+	float: right;
+	width: 640px;
+}
+.volunteer-main-r>form>*{
+	padding-left:13px;
+	box-sizing: border-box;
+	margin-bottom: 15px;
+	background: #ededee;
+}
+.volunteer-main-r input[type="text"]{
+	width: 310px;
+	height: 40px;
+	border: 0;
+	outline: none;
+}
+input[name="name"],input[name="phone"]{
+	float: left;
+
+}
+input[name="age"],input[name="address"]{
+	float: right;
+}
+textarea{
+	padding:13px;
+	width: 100%;
+	height: 120px;
+	outline: none;
+	border: 0;
+	resize: none;
+}
+.volunteer-main-r input[type="submit"]{
+	height: 40px;
+	width: 100%;
+	color:#000;
+	font-family: "黑体";
+	border: 0;
+	outline: none;
+}
+
+
+section .contact{
+	height: 360px;
+	background: #33363f;
+	padding-top: 50px;
+}
+.submit{
+	position: relative;
+	height: 40px;
+	width: 512px;
+	margin:auto;
+}
+.submit input{
+	border: 0;
+	outline: none;
+	box-sizing: border-box;
+}
+.submit [type="text"]{
+	height: 100%;
+	width: calc( 100% - 80px );
+	padding-left: 20px;
+}
+.submit [type="submit"]{
+	width: 80px;
+	height: 100%;
+	float: right;
+}
