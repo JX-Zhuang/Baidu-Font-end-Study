@@ -97,9 +97,9 @@ function citySelectCity(city) {
     // 调用图表渲染函数
     renderChart();
 }
-/**
+*
  * 初始化日、周、月的radio事件，当点击时，调用函数graTimeChange
- */
+ 
 function initGraTimeForm() {
     var input = document.querySelectorAll('[name="gra-time"]');
     for (var i = input.length - 1; i >= 0; i--) {
