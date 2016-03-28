@@ -65,8 +65,8 @@ function rgb() {
 function renderChart() {
     var city = pageState.nowSelectCity;
     var time = pageState.nowGraTime;
-    var obj=chartData[city][time];
-    var item='';
+    var obj = chartData[city][time];
+    var item = '';
     for (var time in obj) {
         var data = obj[time];
         var title = ' title=日期：' + time + ',空气质量：' + data + '>';
@@ -130,36 +130,47 @@ function initAqiChartData() {
     // 将原始的源数据处理成图表需要的数据格式
     for (var city in aqiSourceData) {
         var cityData = aqiSourceData[city];
-        var date = Object.keys(cityData);
-        chartData[city] = {};
-        chartData[city].day= cityData;
-        for (var date in cityData) {
-            var keys = Object.keys(aqiSourceData[city]);
-            chartData[city]['month']={
-                '第一个月':0,
-                '第二个月':0,
-                '第三个月':0
-            };
-            for (var i = 0; i < 31; i++) {
-                chartData[city]['month']['第一个月'] += aqiSourceData[city][keys[i]];
+        var sum=0,tally=0,week=1;             //周
+        var total=0,count=0,month=-1;        //月
+        var date;                           //日期
+        chartData[city] = {};               //每个城市是一个对象
+        chartData[city].day = cityData;     //天
+        chartData[city].week={};            //周
+        chartData[city].month={};           //月
+        for (var d in cityData) {
+            date=new Date(d);
+            /*
+            *周
+            *
+            */
+            tally++;
+            sum+=cityData[d];
+            if (date.getDay()==0) {
+                chartData[city].week['第'+week+'周']=Math.round(sum/tally);
+                week++;
+                tally=0;
+                sum=0;
             }
-            chartData[city]['month']['第一个月'] = parseInt(chartData[city]['month']['第一个月'] / 31);
-            for (var i = 31; i < 60; i++) {
-                chartData[city]['month']['第二个月'] += aqiSourceData[city][keys[i]];
+            /*
+            *月
+            *
+            */
+            if (month==-1) {
+                month=date.getMonth()+1;
+            }else if(date.getMonth()+1!=month){
+                chartData[city].month['第'+month+'月']=Math.round(total/count);
+                month=date.getMonth()+1;
+                count=0;
+                total=0;
             }
-            chartData[city]['month']['第二个月'] = parseInt(chartData[city]['month']['第二个月'] / 29);
-            for (var i = 60; i < 91; i++) {
-                chartData[city]['month']['第三个月'] += aqiSourceData[city][keys[i]];
-            }
-            chartData[city]['month']['第三个月'] = parseInt(chartData[city]['month']['第三个月'] / 31);
-            
-            chartData[city]['week']={
-                1:0,
-            }
-            
+            count++;
+            total+=cityData[d];
         }
+        chartData[city].week['第'+week+'周']=Math.round(sum/tally);
+        chartData[city].month['第'+month+'月']=Math.round(total/count);
     }
     // 处理好的数据存到 chartData 中
+    console.log(chartData)
     renderChart();
 }
 
