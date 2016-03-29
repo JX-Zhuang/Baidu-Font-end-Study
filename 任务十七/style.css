@@ -22,8 +22,8 @@ fieldset{
 .aqi-chart-wrap div{
 	margin-left: 3px;
 	width: 100%;
-	border-bottom: 0;
+	animation: mydiv 1s;
 }
-.aqi-chart-wrap .month{
-	width: 200px;
+@keyframes mydiv{
+	0% {height: 0px;}
 }

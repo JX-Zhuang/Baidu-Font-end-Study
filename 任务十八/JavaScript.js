@@ -6,23 +6,19 @@ window.onload = function() {
     var data = [];
     var aqiInput = document.getElementById('aqi-input');
     var aqiDiv = document.getElementById('aqi-div');
-        /**
-         *左侧入
-         *
-         **/
-    function leftAdd() {
-        var value = aqiInput.value;
+    /**
+     *左侧入
+     *
+     **/
+    function leftAdd(value) {
         data.unshift(value);
-        render();
     }
     /**
      *右侧入
      *
      **/
-    function rightAdd() {
-        var value = aqiInput.value;
+    function rightAdd(value) {
         data.push(value);
-        render();
     }
     /**
      *左侧出
@@ -30,7 +26,6 @@ window.onload = function() {
      **/
     function leftDel() {
         data.shift();
-        render();
     }
     /**
      *右侧出
@@ -38,7 +33,6 @@ window.onload = function() {
      **/
     function rightDel() {
         data.pop();
-        render();
     }
     /**
      *绑定事件
@@ -49,20 +43,31 @@ window.onload = function() {
         var rightAddBtn = document.getElementById('right-add');
         var leftDelBtn = document.getElementById('left-del');
         var rightDelBtn = document.getElementById('right-del');
+        var value;
         window.addEventListener('click', function(event) {
-            switch (event.target.id) {
-                case 'left-add':
-                    leftAdd();
-                    break;
-                case 'right-add':
-                    rightAdd();
-                    break;
-                case 'left-del':
-                    leftDel();
-                    break;
-                case 'right-del':
-                    rightDel();
-                    break;
+            if (aqiInput.value.search(/.[^0-9]/) != -1) {
+                alert('请输入数字');
+                return false;
+            } else {
+                value = aqiInput.value;
+                switch (event.target.id) {
+                    case 'left-add':
+                        leftAdd(value);
+                        render();
+                        break;
+                    case 'right-add':
+                        rightAdd(value);
+                        render();
+                        break;
+                    case 'left-del':
+                        leftDel();
+                        render();
+                        break;
+                    case 'right-del':
+                        rightDel();
+                        render();
+                        break;
+                }
             }
         });
     }
@@ -71,8 +76,12 @@ window.onload = function() {
      *
      **/
     function render() {
-        aqiDiv.innerHTML=data;
-        var length=data.length;
+        var length = data.length;
+        var item = '';
+        for (var i = 0; i < length; i++) {
+            item += '<span>' + data[i] + '</span>';
+        }
+        aqiDiv.innerHTML = item;
     }
     event();
 }

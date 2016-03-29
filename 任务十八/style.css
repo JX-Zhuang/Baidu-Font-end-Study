@@ -1,0 +1,10 @@
+#aqi-div span{
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	float: left;
+	margin:20px;
+	color:#000;
+	background: red;
+	text-align: center;
+}
