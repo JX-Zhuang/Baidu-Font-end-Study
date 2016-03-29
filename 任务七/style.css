@@ -340,7 +340,8 @@ section .new-life>div:nth-child(2):after{
     border-bottom: 15px solid rgba(255, 255, 255, 0);
 }
 section .new-life>div:last-child{
-	 background:url(new-life.png) no-repeat;
+	background: url(new-life.png) right center no-repeat;
+    background-size: cover;
 }
 
 section .volunteer{
@@ -373,9 +374,9 @@ section .volunteer{
 	margin:14px auto 0;
 }
 .volunteer-main{
-	width: 100%;
-	overflow: hidden;
-	margin-top: 105px;
+	width: 1004px;
+    	overflow: hidden;
+    	margin: 105px auto 0;
 }
 .volunteer-main-l{
 	float: left;
