@@ -73,7 +73,6 @@ window.onload = function() {
             switch (event.target.id) {
                 case 'sort-btn':
                     data=eventBtn.sort(data);
-                    render();
                     break;
                 case 'left-add':
                     eventBtn.leftAdd(value);
@@ -95,14 +94,11 @@ window.onload = function() {
      *
      **/
     function createArr() {
-        //var arr=[];
         for (var i = 0; i < 30; i++) {
             var num=Math.round(Math.random()*90+10);
             data.push(num);
         }
-        console.log(data)
-
-        //return arr;
+        render();
     }
     /**
      *渲染页面
@@ -124,8 +120,6 @@ window.onload = function() {
         event();
         createArr();
         data=eventBtn.sort(data);
-        render();
-        console.log(data)
     }
     init();
 }
