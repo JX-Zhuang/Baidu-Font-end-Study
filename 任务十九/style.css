@@ -20,7 +20,7 @@ fieldset{
 	color: #fff;
 }
 #aqi-div div{
-	transition: all .3s ease;
+	/*transition: all .3s ease;*/
 }
 #aqi-num{
 	width: 800px;
