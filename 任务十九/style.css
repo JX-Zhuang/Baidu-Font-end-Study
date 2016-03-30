@@ -17,10 +17,10 @@ fieldset{
 	display: flex;
 	align-items: flex-end;
 	justify-content: space-around;
+	color: #fff;
 }
-#aqi-div>div{
-	border: 1px solid #000;
-	border-bottom: 0;
+#aqi-div div{
+	transition: all .3s ease;
 }
 #aqi-num{
 	width: 800px;
@@ -34,7 +34,6 @@ fieldset{
 	height: 50px;
 	float: left;
 	margin:5px;
-	color:#000;
-	background: red;
+	color: #fff;
 	text-align: center;
 }

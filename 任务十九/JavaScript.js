@@ -25,16 +25,19 @@ window.onload = function() {
         },
         leftAdd: function(value) {
             if (this.searchValue(value) == true) {
+                value = Number(value);
+                if(data.length==60) return (alert('不能大于60个'));
                 data.unshift(value);
                 render();
-
+                console.log(data)
             }
         }, //左侧入
         rightAdd: function(value) {
             if (this.searchValue(value) == true) {
+                value = Number(value);
+                if(data.length==60) return (alert('不能大于60个'));
                 data.push(value);
                 render();
-
             }
         }, //右侧入
         leftDel: function() {
@@ -47,21 +50,79 @@ window.onload = function() {
             render();
 
         }, //右侧出
-        sort: function(arr) {
-                var i = arr.length,
-                    j;
-                var num;
-                for (i; i > 0; i--) {
-                    for (j = 0; j < i - 1; j++) {
-                        if (arr[j] > arr[j + 1]) {
-                            num = arr[j + 1];
-                            arr[j + 1] = arr[j];
-                            arr[j] = num;
-                        }
+        sortRender: function() {
+            var col = document.querySelectorAll('#aqi-div div');
+            var block = document.querySelectorAll('#aqi-num span');
+            var i = col.length,
+                j = 0;
+            var num,
+                text;
+            var a;
+            function forJ() {
+                if (Number(col[j].innerHTML) > Number(col[j + 1].innerHTML)) {
+                    //柱状图
+                    col[j].style.backgroundColor='red';
+
+                    text = col[j + 1].innerHTML;
+                    col[j + 1].innerHTML = col[j].innerHTML;
+                    col[j].innerHTML = text;
+                    num = col[j + 1].style.cssText;
+                    col[j + 1].style.cssText = col[j].style.cssText;
+                    col[j].style.cssText = num;
+                    //文字
+                    text = block[j + 1].innerHTML;
+                    block[j + 1].innerHTML = block[j].innerHTML;
+                    block[j].innerHTML = text;
+                    //style
+                    num = block[j + 1].style.cssText;
+                    block[j + 1].style.cssText = block[j].style.cssText;
+                    block[j].style.cssText = num;
+                    
+                    num = data[j + 1];
+                    data[j + 1] = data[j];
+                    data[j] = num;
+                }else{
+                    col[j].style.backgroundColor=col[j].style.backgroundColor;
+                }
+                j++;
+                if (j < i - 1) {
+                    var interval = setInterval(function() {
+                        a=1;
+                        forJ();
+                        clearInterval(interval);
+                    }, 300);
+                } else {
+                    j = 0;
+                    i--;
+                    if (i == 0) {
+                        return true;
+                    } else {
+                        var interval = setInterval(function() {
+                            forJ();
+                            clearInterval(interval);
+                        }, 300);
                     }
                 }
-                return arr;
-            } //数组排序
+                return data;
+            }
+            forJ();
+        }//,
+        // sort: function(arr) {
+        //         var i = arr.length,
+        //             j;
+        //         var num;
+        //         for (i; i > 0; i--) {
+        //             for (j = 0; j < i - 1; j++) {
+        //                 //arr[j]=Number(arr[j]);
+        //                 if (arr[j] > arr[j + 1]) {
+        //                     num = arr[j + 1];
+        //                     arr[j + 1] = arr[j];
+        //                     arr[j] = num;
+        //                 }
+        //             }
+        //         }
+        //         return arr;
+        //     } //数组排序
     };
     /**
      *绑定事件
@@ -72,7 +133,9 @@ window.onload = function() {
             value = aqiInput.value;
             switch (event.target.id) {
                 case 'sort-btn':
-                    data=eventBtn.sort(data);
+                    //data=eventBtn.sort(data);
+                    //render();
+                    eventBtn.sortRender();
                     break;
                 case 'left-add':
                     eventBtn.leftAdd(value);
@@ -95,7 +158,7 @@ window.onload = function() {
      **/
     function createArr() {
         for (var i = 0; i < 30; i++) {
-            var num=Math.round(Math.random()*90+10);
+            var num = Math.round(Math.random() * 90 + 10);
             data.push(num);
         }
         render();
@@ -107,19 +170,56 @@ window.onload = function() {
     function render() {
         var length = data.length;
         var item = '';
-        var num='';
+        var num = '';
+        var bgColor = '';
+        var j;
         for (var i = 0; i < length; i++) {
-            item += '<div style="height:'+data[i]*5+'px">' + data[i] + '</div>';
-            num += '<span>' + data[i] + '</span>';
+            j = parseInt(data[i] / 10);
+            switch (j) {
+                case 1:
+                    bgColor = '#082';
+                    break;
+                case 2:
+                    bgColor = '#777';
+                    break;
+                case 3:
+                    bgColor = '#840';
+                    break;
+                case 4:
+                    bgColor = '#B1AE35';
+                    break;
+                case 5:
+                    bgColor = '#1a8';
+                    break;
+                case 6:
+                    bgColor = '#1DDADA';
+                    break;
+                case 7:
+                    bgColor = '#D63B97';
+                    break;
+                case 8:
+                    bgColor = '#ccc';
+                    break;
+                case 9:
+                    bgColor = '#0ad';
+                    break;
+                default:
+                    bgColor = '#E40505';
+                    break;
+
+            }
+            item += '<div style="height:' + data[i] * 5 + 'px;background:' + bgColor + '">' + data[i] + '</div>';
+            num += '<span style="background-color:' + bgColor + '">' + data[i] + '</span>';
         }
         aqiDiv.innerHTML = item;
         aqiNum.innerHTML = num;
 
     }
-    function init(){
+
+    function init() {
         event();
         createArr();
-        data=eventBtn.sort(data);
+        //data = eventBtn.sort(data);
     }
     init();
 }
