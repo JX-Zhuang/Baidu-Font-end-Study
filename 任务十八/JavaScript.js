@@ -45,7 +45,7 @@ window.onload = function() {
         var rightDelBtn = document.getElementById('right-del');
         var value;
         window.addEventListener('click', function(event) {
-            if (aqiInput.value.search(/.[^0-9]/) != -1) {
+            if (aqiInput.value.search(/[^0-9]/) != -1||aqiInput.value=='') {
                 alert('请输入数字');
                 return false;
             } else {

@@ -1,0 +1,35 @@
+#aqi-textarea {
+    width: 300px;
+    height: 200px;
+}
+
+#aqi-div {
+    overflow: hidden;
+}
+
+#aqi-div span {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin: 20px;
+    color: #000;
+    background: red;
+    text-align: center;
+}
+
+.change-color {
+    animation: changeColor 3s;
+    animation-direction:alternate;/*逆向*/
+    animation-iteration-count:2;/*两次*/
+}
+
+@keyframes changeColor {
+    from {
+        background: red;
+    }
+    to {
+        background: blue;
+        color:#fff;
+    }
+}
