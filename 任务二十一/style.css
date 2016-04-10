@@ -1,0 +1,16 @@
+#show-tag{
+	margin:20px;
+	min-height: 100px;
+}
+#show-tag span{
+	float: left;
+	margin: 20px;
+	display: inline-block;
+	height: 50px;
+	min-width: 50px;
+	background-color: green;
+	color:white;
+}
+#show-tag span:hover{
+	background-color: red;
+}

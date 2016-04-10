@@ -12,6 +12,7 @@ window.onload = function() {
      *
      **/
     function leftAdd(value) {
+        console.log(value)
         if (value instanceof Array) {
             var length = value.length;
             for (var i = length - 1; i >= 0; i--) {
@@ -61,6 +62,8 @@ window.onload = function() {
         if (val1 == val2) {
             alert(msg);
             return false;
+        }else{
+         	return true;
         }
     }
 
@@ -76,6 +79,9 @@ window.onload = function() {
             if (item.search(val) != -1) {
                 newArr.push(index);
                 block[index].setAttribute('class', 'change-color');
+                setTimeout(function(){
+                	block[index].setAttribute('class', '');
+                },6000);
             }
         });
         if (!promptMsg(newArr.length, 0, '没有你想要的内容')) return false;
@@ -85,7 +91,7 @@ window.onload = function() {
      *
      **/
     function valReg(val) {
-        var newVal = val.split(/[^a-zA-Z0-9]/);
+        var newVal = val.split(/[^a-zA-Z0-9.\u4E00-\u9FA5]/);
         return newVal;
     }
     /**
@@ -101,15 +107,13 @@ window.onload = function() {
         var value;
         var searchVal;
         window.addEventListener('click', function(event) {
-            //if (aqiTextarea.value.search(/[^0-9]/) != -1 || aqiTextarea.value == '') {
-            //alert('请输入数字');
-            //return false;
-            //} else {
+            console.log(0)
             value = aqiTextarea.value.trim();
             value = valReg(value);
             searchVal = searchInput.value;
             switch (event.target.id) {
                 case 'left-add':
+                console.log(value)
                     if (!promptMsg(value, '', '请输入要增加的内容')) {
                         return false;
                     }
@@ -118,7 +122,9 @@ window.onload = function() {
                     render();
                     break;
                 case 'right-add':
-                    if (!promptMsg(value, '', '请输入要增加的内容')) return false;
+                    if (!promptMsg(value, '', '请输入要增加的内容')) {
+                    	return false;
+                    }
                     rightAdd(value);
                     aqiTextarea.value = '';
                     render();
