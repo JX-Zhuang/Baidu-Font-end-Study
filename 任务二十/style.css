@@ -16,7 +16,7 @@
     color: #000;
     background: red;
     text-align: center;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .change-color {

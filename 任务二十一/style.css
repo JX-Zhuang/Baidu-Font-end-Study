@@ -1,8 +1,8 @@
-#show-tag{
+#show-tag,#show-hobby{
 	margin:20px;
-	min-height: 100px;
+	overflow: auto;
 }
-#show-tag span{
+#show-tag span,#show-hobby span{
 	float: left;
 	margin: 20px;
 	display: inline-block;
@@ -10,6 +10,7 @@
 	min-width: 50px;
 	background-color: green;
 	color:white;
+	cursor: pointer;
 }
 #show-tag span:hover{
 	background-color: red;
